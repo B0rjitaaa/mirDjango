@@ -25,7 +25,7 @@ SECRET_KEY = '*_@c(r60c$%-bpu^h29x)1b^x*8a1f-6dvau$nu=8kff-(&5nf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
