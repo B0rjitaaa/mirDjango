@@ -325,10 +325,18 @@
                     <h3>Network Activities <small>Graph title sub-title</small></h3>
                   </div>
                   <div class="col-md-6">
+                  <form action="{% url 'index' %}" method="post">
+                  {% csrf_token %}
+                  <input type="text" name="daterange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                  {% comment %}
+                    TODO: transform text date into datetime in views
+                  {% endcomment %}
                     <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                       <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                      <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                      <span name="calendarResp">December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
                     </div>
+                    <input type="submit" class="applyBtn btn btn-default btn-small btn-primary">
+                  </form>
                   </div>
                 </div>
 
@@ -1051,6 +1059,12 @@
   labels: ['Value']
 });
     </script>
+
+    <script type="text/javascript">
+$(function() {
+    $('input[name="daterange"]').daterangepicker();
+});
+</script>
   
   </body>
 </html>
