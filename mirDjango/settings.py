@@ -126,4 +126,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-FIXTURE_DIIRS = ['../main/fixtures']
+FIXTURE_DIRS = ['../main/fixtures']

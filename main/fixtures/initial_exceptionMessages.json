@@ -1,0 +1,17 @@
+[{
+    "model": "main.exceptionmessage",
+    "pk": 1,
+    "fields": {
+        "code": "502",
+        "date": "2019-04-13T21:05:19Z",
+        "detail": "Test 1"
+    }
+}, {
+    "model": "main.exceptionmessage",
+    "pk": 2,
+    "fields": {
+        "code": "404",
+        "date": "2017-04-02T21:05:36Z",
+        "detail": "Test 2"
+    }
+}]
