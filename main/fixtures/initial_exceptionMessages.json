@@ -14,4 +14,24 @@
         "date": "2017-04-02T21:05:36Z",
         "detail": "Test 2"
     }
-}]
+}, {
+    "model": "main.exceptionmessage",
+    "pk": 3,
+    "fields": {
+        "code": "404",
+        "date": "2017-04-02T21:05:36Z",
+        "detail": "Test 2"
+    }
+}, {
+    "model": "main.exceptionmessage",
+    "pk": 4,
+    "fields": {
+        "code": "404",
+        "date": "2017-04-03T21:05:36Z",
+        "detail": "Test 2"
+    }
+}
+
+
+
+]
