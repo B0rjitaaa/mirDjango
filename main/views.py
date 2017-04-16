@@ -6,6 +6,7 @@ import json
 
 from main.models import ExceptionMessage
 
+
 def index(request):
 	exceptionMessages = ExceptionMessage.objects.all()
 	response = {
@@ -17,13 +18,14 @@ def index(request):
 		exceptionMessages = ExceptionMessage.objects.all()
 
 		#Retrieving dates from DB
-		dates_filtered = ExceptionMessage.objects.filter(date__range=[convert_str_to_datetime(dates[:10]), convert_str_to_datetime(dates[13:])]).values_list('date', flat=True).distinct()
+		dates_filtered = ExceptionMessage.objects.filter(
+			date__range=[convert_str_to_datetime(dates[:10]), convert_str_to_datetime(dates[13:])]).values_list('date', flat=True).distinct()
 
 		#Count same dates --> date1:3 times .eg
 		exceptionMessagesTimes = {}
 		for i in range (len(dates_filtered)):
-			date_aux = str(dates_filtered[i].year) + '/' + str(dates_filtered[i].month) + '/' + str(dates_filtered[i].day)
-			exceptionMessagesTimes[date_aux] = ExceptionMessage.objects.filter(
+			# date_aux = str(dates_filtered[i].year) + '/' + str(dates_filtered[i].month) + '/' + str(dates_filtered[i].day)
+			exceptionMessagesTimes[dates_filtered[i]] = ExceptionMessage.objects.filter(
 				date__year=dates_filtered[i].year, 
 				date__month=dates_filtered[i].month, 
 				date__day=dates_filtered[i].day).count()
@@ -31,10 +33,7 @@ def index(request):
 		response = {
 			'exceptionMessagesTimes': exceptionMessagesTimes
 		}
-
-		print("ExceptionMessagestimes: ", exceptionMessagesTimes)
 		
-
 	return render(request, 'index.html', response)
 
 
