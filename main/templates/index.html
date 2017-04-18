@@ -500,7 +500,7 @@
             </div>
 
             <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel tile fixed_height_320 overflow_hidden">
+              <div class="x_panel tile fixed_height_320 overflow_hidden" style="height:100%">
                 <div class="x_title">
                   <h2>Device Usage</h2>
                   <ul class="nav navbar-right panel_toolbox">
@@ -521,60 +521,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <table class="" style="width:100%">
-                    <tr>
-                      <th style="width:37%;">
-                        <p>Top 5</p>
-                      </th>
-                      <th>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                          <p class="">Device</p>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                          <p class="">Progress</p>
-                        </div>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                      </td>
-                      <td>
-                        <table class="tile_info">
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square blue"></i>IOS </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square green"></i>Android </p>
-                            </td>
-                            <td>10%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square purple"></i>Blackberry </p>
-                            </td>
-                            <td>20%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square aero"></i>Symbian </p>
-                            </td>
-                            <td>15%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square red"></i>Others </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
+                    <div id="donutChart" class="demo-placeholder" height="100%" width="140"></div>
                 </div>
               </div>
             </div>
@@ -1028,27 +975,41 @@
     <!-- Custom Theme Scripts -->
     <script src="{% static 'build/js/custom.min.js' %}"></script>
     <script type="text/javascript">
-      console.log('putaaa');
       new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'myfirstchart',
+        // ID of the element in which to draw the chart.
+        element: 'myfirstchart',
 
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: [
-    {% for key, value in exceptionMessagesTimes.items  %}
-      { year: "{{key|date:'Y-m-d'}}", abb: "{{value.0}}", gpm:"{{value.1}}", inaccess:"{{value.2}}", draker:"{{value.3}}"},
-    {% endfor %}
-    //{ year: '2012', value: 20 }
-  ],
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['abb', 'gpm', 'inaccess', 'draker'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['abb', 'gpm', 'inaccess', 'draker']
-});
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+          {% for key, value in exceptionMessagesTimes.items  %}
+            { year: "{{key|date:'Y-m-d'}}", abb: "{{value.0}}", gpm:"{{value.1}}", inaccess:"{{value.2}}", draker:"{{value.3}}"},
+          {% endfor %}
+          //{ year: '2012', value: 20 }
+        ],
+        // The name of the data record attribute that contains x-values.
+        xkey: 'year',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['abb', 'gpm', 'inaccess', 'draker'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['abb', 'gpm', 'inaccess', 'draker']
+      });
+    </script>
+
+    <script type="text/javascript">
+    new Morris.Donut({
+      element: 'donutChart',
+      // colors: ['#43ABC9', '#B5C689', '#EBC944', '#F58B4C', '#C02F1D', '#0D3D56'],
+      colors: ['rgb(211,66,66)', 'rgb(211,105,69)', 'rgb(216,121,57)', 'rgb(206,158,52)', 'rgb(209,198,57)', 'rgb(188,198,54)',
+       'rgb(133,183,68)', 'rgb(97,153,97)', 'rgb(97,147,130)', 'rgb(100,109,155)', 'rgb(87,65,132)', 'rgb(137,76,147)'],
+      resize: true,
+      data: [
+        {label: "Download Sales", value: 12},
+        {label: "In-Store Sales", value: 30},
+        {label: "Mail-Order Sales", value: 20}
+      ]
+    });
     </script>
 
     <script type="text/javascript">

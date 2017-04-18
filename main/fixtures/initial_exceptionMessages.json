@@ -4,7 +4,8 @@
     "fields": {
         "code": "502",
         "date": "2019-04-13T21:05:19Z",
-        "detail": "Test 1"
+        "detail": "Test 1",
+        "api_name": null
     }
 }, {
     "model": "main.exceptionmessage",
@@ -12,7 +13,8 @@
     "fields": {
         "code": "404",
         "date": "2017-04-02T21:05:36Z",
-        "detail": "Test 2"
+        "detail": "Test 2",
+        "api_name": null
     }
 }, {
     "model": "main.exceptionmessage",
@@ -20,18 +22,43 @@
     "fields": {
         "code": "404",
         "date": "2017-04-02T21:05:36Z",
-        "detail": "Test 2"
+        "detail": "Test 2",
+        "api_name": null
     }
 }, {
     "model": "main.exceptionmessage",
     "pk": 4,
     "fields": {
         "code": "404",
-        "date": "2017-04-03T21:05:36Z",
-        "detail": "Test 2"
+        "date": "2017-04-08T21:05:36Z",
+        "detail": "Test 2",
+        "api_name": null
     }
-}
-
-
-
-]
+}, {
+    "model": "main.exceptionmessage",
+    "pk": 5,
+    "fields": {
+        "code": "404",
+        "date": "2017-05-16T20:44:48Z",
+        "detail": "waurg",
+        "api_name": null
+    }
+}, {
+    "model": "main.exceptionmessage",
+    "pk": 6,
+    "fields": {
+        "code": "503",
+        "date": "2017-04-23T20:55:48Z",
+        "detail": "test",
+        "api_name": null
+    }
+}, {
+    "model": "main.exceptionmessage",
+    "pk": 7,
+    "fields": {
+        "code": "403",
+        "date": "2017-04-23T20:56:16Z",
+        "detail": "lolo",
+        "api_name": null
+    }
+}]
