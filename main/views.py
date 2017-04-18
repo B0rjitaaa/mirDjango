@@ -18,10 +18,31 @@ def index(request):
 		exceptionMessagesTimes = {}
 
 		for i in range(len(dates_calc)):
-			exceptionMessagesTimes[dates_calc[i]] = ExceptionMessage.objects.filter(
+			exceptionMessagesTimes[dates_calc[i]] = [
+			ExceptionMessage.objects.filter(
 				date__year=dates_calc[i].year, 
 				date__month=dates_calc[i].month, 
-				date__day=dates_calc[i].day).count()
+				date__day=dates_calc[i].day,
+				api_name='ABB').count(),
+
+			ExceptionMessage.objects.filter(
+				date__year=dates_calc[i].year, 
+				date__month=dates_calc[i].month, 
+				date__day=dates_calc[i].day,
+				api_name='GPM').count(),
+
+			ExceptionMessage.objects.filter(
+				date__year=dates_calc[i].year, 
+				date__month=dates_calc[i].month, 
+				date__day=dates_calc[i].day,
+				api_name='Inaccess').count(),
+
+			ExceptionMessage.objects.filter(
+				date__year=dates_calc[i].year, 
+				date__month=dates_calc[i].month, 
+				date__day=dates_calc[i].day,
+				api_name='Draker').count()
+			]
 
 		response = {
 			'exceptionMessagesTimes': exceptionMessagesTimes,
